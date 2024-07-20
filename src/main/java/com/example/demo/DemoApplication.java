@@ -24,7 +24,7 @@ class controller {
     @GetMapping
     String sayHello() {
         service.sayHello("Hello World");
-        return "";
+        return "Return Value from Controller";
     }
 }
 
