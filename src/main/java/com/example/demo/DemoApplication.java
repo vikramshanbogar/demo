@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +15,22 @@ public class DemoApplication {
 
 }
 
+
 @RestController("/")
 class controller {
+    @Autowired
+    Service service;
+
     @GetMapping
     String sayHello() {
-        return "Hi Vikram from Spring";
+        service.sayHello("Hello World");
+        return "";
+    }
+}
+
+@org.springframework.stereotype.Service
+class Service {
+    void sayHello(String string) {
+        System.out.println(string);
     }
 }
